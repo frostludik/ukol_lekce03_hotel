@@ -9,9 +9,9 @@ public class Booking {
     private Guest guest;
     private List<Guest> otherGuests;
     private LocalDate dateFrom, dateTo;
-    private boolean isVacation;
+    private Boolean isVacation;
 
-    public Booking(Room room, Guest guest, List<Guest> otherGuests, LocalDate dateFrom, LocalDate dateTo, boolean isVacation) {
+    public Booking(Room room, Guest guest, List<Guest> otherGuests, LocalDate dateFrom, LocalDate dateTo, Boolean isVacation) {
         this.room = room;
         this.guest = guest;
         this.otherGuests = otherGuests;
@@ -20,7 +20,7 @@ public class Booking {
         this.isVacation = isVacation;
     }
     //no need to add additional guests
-    public Booking(Room room, Guest guest, LocalDate dateFrom, LocalDate dateTo, boolean isVacation) {
+    public Booking(Room room, Guest guest, LocalDate dateFrom, LocalDate dateTo, Boolean isVacation) {
         this.room = room;
         this.guest = guest;
         this.otherGuests = new ArrayList<>();
@@ -36,6 +36,12 @@ public class Booking {
         }
         otherGuests.add(guest);
     }
+// pridat metodu getNumberOfGuests
+
+    public int getNumberOfGuests() {
+        return 1 + otherGuests.size(); //always 1 main guest + otherGuests list
+    }
+
 
     public int getRoom() {
         return room.getRoomNumber();
@@ -77,7 +83,7 @@ public class Booking {
         this.dateTo = dateTo;
     }
 
-    public boolean isVacation() {
+    public Boolean isVacation() {
         return isVacation;
     }
 
