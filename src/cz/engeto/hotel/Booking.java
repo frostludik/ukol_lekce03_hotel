@@ -36,7 +36,6 @@ public class Booking {
         }
         otherGuests.add(guest);
     }
-// pridat metodu getNumberOfGuests
 
     public int getNumberOfGuests() {
         return 1 + otherGuests.size(); //always 1 main guest + otherGuests list
