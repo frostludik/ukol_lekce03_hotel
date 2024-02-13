@@ -52,10 +52,6 @@ public class Guest {
 
     @Override
     public String toString() {
-        if(name == null) {
-            return "no other guest";
-        } else {
-            return getNameAndSurnameWithBirthdate();
-        }
+        return getNameAndSurnameWithBirthdate();
     }
 }
