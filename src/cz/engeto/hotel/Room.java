@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Room {
     private int roomNumber, numberOfBeds;
-    private boolean hasBalcony, hasSeaView;
+    private Boolean hasBalcony, hasSeaView;
     private BigDecimal pricePerNight;
 
     public Room(int roomNumber, int numberOfBeds, boolean hasBalcony, boolean hasSeaView, BigDecimal pricePerNight) {
