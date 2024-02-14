@@ -23,9 +23,9 @@ public class BookingManager {
 
 
     public Booking getBooking(int index) {
-        if (index >= 0 && index < bookingList.size()) {
+        if (index >= 0 && index < bookingList.size())
             return bookingList.get(index);
-        } else {
+        else {
             throw new IndexOutOfBoundsException("Invalid index: " + index);
         }
     }
@@ -54,6 +54,11 @@ public class BookingManager {
         for (Booking booking : bookingList) {
             totalNumberOfGuest += booking.getNumberOfGuests();
         }
+        if (totalNumberOfGuest == 0) {
+            System.out.println("No guest in bookings. Cannot calculate average guests per booking");
+            return 0;
+            }
         return (double) totalNumberOfGuest / bookingList.size();
     }
 }
+
