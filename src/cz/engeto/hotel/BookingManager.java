@@ -5,17 +5,16 @@ import java.util.List;
 
 public class BookingManager {
     private List<Booking> bookingList;
-    private Booking booking;
-    private Booking isVacation;
+//    private Booking booking;
+//    private Booking isVacation;
 
 
-    public BookingManager(List<Booking> bookingList, Booking booking, Booking isVacation) {
-        this.bookingList = new ArrayList<>();
-        this.booking = booking;
-        this.isVacation = isVacation;
-
+    public BookingManager(List<Booking> bookingList) {
+        this.bookingList = bookingList;
+    //    this.booking = booking;
+    //    this.isVacation = isVacation;
     }
-
+    //Booking booking, Booking isVacation
 
     public void addBooking(Booking newBooking) {
         this.bookingList.add(newBooking);
