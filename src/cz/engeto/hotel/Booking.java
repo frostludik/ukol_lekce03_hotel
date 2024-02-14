@@ -53,6 +53,12 @@ public class Booking {
         return dateTo.format(formatter);
     }
 
+    public int getBookinglength() {
+        return dateTo.getDayOfYear() - dateFrom.getDayOfYear();
+    }
+    public BigDecimal getTotalPrice() {
+        return room.getPricePerNight().multiply(BigDecimal.valueOf(getBookinglength()));
+    }
     public int getRoom() {
         return room.getRoomNumber();
     }
