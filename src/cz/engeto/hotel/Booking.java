@@ -2,6 +2,7 @@ package cz.engeto.hotel;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,15 @@ public class Booking {
         return 1 + otherGuests.size(); //always 1 main guest + otherGuests list
     }
 
+    public String getFormattedDateFrom() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return dateFrom.format(formatter);
+    }
+
+    public String getFormattedDateTo() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return dateTo.format(formatter);
+    }
 
     public int getRoom() {
         return room.getRoomNumber();
