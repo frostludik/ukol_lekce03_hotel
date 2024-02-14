@@ -47,30 +47,51 @@ public class Main {
                 LocalDate.of(2023, 8, 31), true));
 
 
-
         System.out.println("----all bookings-----------------------------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             String seaViewAvailability = bookingList.getBooking(i).isHasSeaView() ? "room with seaview" : "room without seaview";
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
                     + ": " + bookingList.getBooking(i).getGuest() + ", [total guests: " + bookingList.getBooking(i).getNumberOfGuests() + ", "
                     + seaViewAvailability + "] for " + bookingList.getBooking(i).getPricePerNight() + " CZK");
-            }
+        }
 
 
         System.out.println("----first Eight Vacation Bookings-----------------------------------------------------------------------------");
         int firstEight = 0;
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
-            if (! bookingList.getBooking(i).isVacation() == TRUE) continue;
-            else firstEight++;
-            if (firstEight == 8) break;
-            String vacationOrBusiness = bookingList.getBooking(i).isVacation() ? "vacation" : "business";
-            System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
-                    + ": " + bookingList.getBooking(i).getGuest() + ", [total guests: " + bookingList.getBooking(i).getNumberOfGuests() + ", "
-                    + "room with seaview" + "] for " + bookingList.getBooking(i).getPricePerNight() +
-                    " CZK, type of stay: " + vacationOrBusiness);
+            if (bookingList.getBooking(i).isVacation()) {
+                String vacationOrBusiness = bookingList.getBooking(i).isVacation() ? "vacation" : "business";
+                System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
+                        + ": " + bookingList.getBooking(i).getGuest() + ", [total guests: " + bookingList.getBooking(i).getNumberOfGuests() + ", "
+                        + "room with seaview" + "] for " + bookingList.getBooking(i).getPricePerNight() +
+                        " CZK, type of stay: " + vacationOrBusiness);
+                firstEight++;
+                if (firstEight == 8) break;
             }
         }
 
+        System.out.println("----Guest Statistics-----------------------------------------------------------------------------");
+
+        int bookingsWithOneGuest = 0;
+        int bookingsWithTwoGuests = 0;
+        int bookingsWithMoreGuests = 0;
+        for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
+            switch (bookingList.getBooking(i).getNumberOfGuests()) {
+                case 1:
+                    bookingsWithOneGuest++;
+                    break;
+                case 2:
+                    bookingsWithTwoGuests++;
+                    break;
+                default:
+                    bookingsWithMoreGuests++;
+                    break;
+            }
+        }
+        System.out.println("Number of bookings with 1 guest: "+bookingsWithOneGuest);
+        System.out.println("Number of bookings with 2 guests: "+bookingsWithTwoGuests);
+        System.out.println("Number of bookings with more than 2 guests: "+bookingsWithMoreGuests);
+    }
 }
 
 
