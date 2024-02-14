@@ -28,15 +28,14 @@ public class Main {
         roomsList.add(new Room(2, 1, true, true, BigDecimal.valueOf(1000)));
         roomsList.add(new Room(3, 3, false, true, BigDecimal.valueOf(2400)));
 
-
-        //adding bookings
+//adding bookings
         bookingList.addBooking(new Booking(roomsList.get(2), guestsList.get(0), LocalDate.of(2023, 6, 1),
                 LocalDate.of(2023, 6, 7), false));
 
         bookingList.addBooking(new Booking(roomsList.get(1), guestsList.get(1), LocalDate.of(2023, 7, 18),
                 LocalDate.of(2023, 7, 21), true));
 
-        //adding multiple bookings with same parameters
+        //adding multiple bookings with same parameters, but consequent dates
         LocalDate startDate = LocalDate.of(2023, 8, 1);
         for (int i = 0; i < 10; i++) {
             LocalDate endDate = startDate.plusDays(1);
@@ -48,22 +47,17 @@ public class Main {
                 LocalDate.of(2023, 8, 31), true));
 
 
-        System.out.println("----all bookings-----------------------------------------------------------------------------");
 
+        System.out.println("----all bookings-----------------------------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             String seaViewAvailability = bookingList.getBooking(i).isHasSeaView() ? "room with seaview" : "room without seaview";
-            System.out.println(bookingList.getBooking(i).getDateFrom() + " to " + bookingList.getBooking(i).getDateTo()
-                    +": " +bookingList.getBooking(i).getGuest()+", [total guests: "+bookingList.getBooking(i).getNumberOfGuests()+", "
-                    +seaViewAvailability+"] for " +bookingList.getBooking(i).getPricePerNight()+" CZK");
-        }
+            System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
+                    + ": " + bookingList.getBooking(i).getGuest() + ", [total guests: " + bookingList.getBooking(i).getNumberOfGuests() + ", "
+                    + seaViewAvailability + "] for " + bookingList.getBooking(i).getPricePerNight() + " CZK");
+            }
 
 
-// TATO JE OK
-//        System.out.println("----booking details-----------------------------------------------------------------------------");
-//        for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
-//            System.out.println("Room: " + bookingList.getBooking(i).getRoom() + ", Guest: " + bookingList.getBooking(i).getGuest() +
-//                    ", From: " + bookingList.getBooking(i).getDateFrom() + ", To: " + bookingList.getBooking(i).getDateTo());
-//        }
+
     }
 }
 
