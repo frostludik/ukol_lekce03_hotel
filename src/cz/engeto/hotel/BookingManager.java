@@ -4,29 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingManager {
-    private List<Booking> bookingList;
-//    private Booking booking;
-//    private Booking isVacation;
+    private List<Booking> bookingList = new ArrayList<>();
+    private Booking booking;
 
 
-    public BookingManager(List<Booking> bookingList) {
+    public BookingManager(List<Booking> bookingList, Booking booking) {
         this.bookingList = bookingList;
-    //    this.booking = booking;
-    //    this.isVacation = isVacation;
-    }
-    //Booking booking, Booking isVacation
-
-    public void addBooking(Booking newBooking) {
-        this.bookingList.add(newBooking);
+        this.booking = booking;
     }
 
+    public BookingManager() {
+    }
 
-    public Booking getBooking(int index) {
-        if (index >= 0 && index < bookingList.size())
-            return bookingList.get(index);
+    public void addBooking(Booking booking) {
+        this.bookingList.add(booking);
+    }
+
+
+    public Booking getBooking(int i) {
+        if (i >= 0 && i < bookingList.size())
+            return bookingList.get(i);
         else {
-            throw new IndexOutOfBoundsException("Invalid index: " + index);
+            throw new IndexOutOfBoundsException("Invalid index: " + i);
         }
+    }
+
+    public int getNumberOfBookings() {
+        return bookingList.size();
     }
 
     public List<Booking> getBookings() {
