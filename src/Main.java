@@ -7,9 +7,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
-import static java.lang.Boolean.TRUE;
 
 public class Main {
     public static void main(String[] args) {
@@ -46,8 +43,8 @@ public class Main {
         bookingList.addBooking(new Booking(roomsList.get(2), guestsList.get(2), LocalDate.of(2023, 8, 1),
                 LocalDate.of(2023, 8, 31), true));
 
-
-        System.out.println("----all bookings-----------------------------------------------------------------------------");
+//print all booking with details
+        System.out.println("----all bookings----");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             String seaViewAvailability = bookingList.getBooking(i).isHasSeaView() ? "room with seaview" : "room without seaview";
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
@@ -55,8 +52,9 @@ public class Main {
                     + seaViewAvailability + "] for " + bookingList.getBooking(i).getPricePerNight() + " CZK");
         }
 
-
-        System.out.println("----first Eight Vacation Bookings-----------------------------------------------------------------------------");
+//print first 8 vacation bookings
+        System.out.println("");
+        System.out.println("----Frst eight vacation bookings----");
         int firstEight = 0;
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             if (bookingList.getBooking(i).isVacation()) {
@@ -70,7 +68,9 @@ public class Main {
             }
         }
 
-        System.out.println("----Guest Statistics-----------------------------------------------------------------------------");
+//print guest statistics
+        System.out.println("");
+        System.out.println("----Guest Statistics----");
 
         int bookingsWithOneGuest = 0;
         int bookingsWithTwoGuests = 0;
@@ -88,14 +88,23 @@ public class Main {
                     break;
             }
         }
-        System.out.println("Number of bookings with 1 guest: "+bookingsWithOneGuest);
-        System.out.println("Number of bookings with 2 guests: "+bookingsWithTwoGuests);
-        System.out.println("Number of bookings with more than 2 guests: "+bookingsWithMoreGuests);
+        System.out.println("Bookings with 1 guest: " + bookingsWithOneGuest);
+        System.out.println("Bookings with 2 guests: " + bookingsWithTwoGuests);
+        System.out.println("Bookings with > 2 guests: " + bookingsWithMoreGuests);
+
+//print total price per booking
+        System.out.println("");
+        System.out.println("----Total price per booking----");
+        for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
+            System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
+                    + ": " + bookingList.getBooking(i).getGuest()+ ", "+ bookingList.getBooking(i).getBookinglength()
+                    + " nights, Total price of booking: " + bookingList.getBooking(i).getTotalPrice() + " CZK");
+        }
+
+
     }
+
 }
-
-
-
 
 
 
