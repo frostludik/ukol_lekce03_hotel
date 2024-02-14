@@ -1,5 +1,6 @@
 package cz.engeto.hotel;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,12 @@ public class Booking {
         return room.getRoomNumber();
     }
 
+    public BigDecimal getPricePerNight() {
+        return room.getPricePerNight();
+    }
+    public boolean isHasSeaView() {
+        return room.isHasSeaView();
+    }
     public String getGuest() {
         return guest.getNameAndSurnameWithBirthdate();
     }
