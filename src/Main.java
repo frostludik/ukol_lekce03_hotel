@@ -60,7 +60,7 @@ public class Main {
 
 //print first 8 vacation bookings
     public void printFirstEightVacationBookings() {
-        System.out.println("");
+        System.out.println();
         System.out.println("-------Frst eight vacation bookings------------------------------------------------------");
         int firstEight = 0;
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
@@ -78,7 +78,7 @@ public class Main {
 
 //print guest statistics
     public void printGuestStatistics() {
-        System.out.println("");
+        System.out.println();
         System.out.println("-------Guest Statistics------------------------------------------------------------------");
 
         int bookingsWithOneGuest = 0;
@@ -104,7 +104,7 @@ public class Main {
 
 //print total price per booking
     public void printTotalPricePerBooking() {
-        System.out.println("");
+        System.out.println();
         System.out.println("-------Total price per booking-----------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
