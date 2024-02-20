@@ -15,21 +15,21 @@ public class Main {
     BookingManager bookingList = new BookingManager();
 
 //creating guests
-    public void createGuests () {
+    private void createGuests () {
         guestsList.add(new Guest("Karel", "Dvořák", LocalDate.of(1990, 5, 15)));
         guestsList.add(new Guest("Karel", "Dvořák", LocalDate.of(1979, 1, 3)));
         guestsList.add(new Guest("Karolína", "Tmavá", LocalDate.of(1981, 6, 3)));
     }
 
 //creating rooms
-    public void createRooms () {
+    private void createRooms () {
         roomsList.add(new Room(1, 1, true, true, BigDecimal.valueOf(1000)));
         roomsList.add(new Room(2, 1, true, true, BigDecimal.valueOf(1000)));
         roomsList.add(new Room(3, 3, false, true, BigDecimal.valueOf(2400)));
     }
 
 //adding bookings
-    public void createBookings () {
+    private void createBookings () {
         bookingList.addBooking(new Booking(roomsList.get(2), guestsList.get(0), LocalDate.of(2023, 6, 1),
                 LocalDate.of(2023, 6, 7), false));
 
@@ -48,7 +48,7 @@ public class Main {
     }
 
 //print all booking with details
-    public void printAllBookings() {
+    private void printAllBookings() {
         System.out.println("\n-------all bookings----------------------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             String seaViewAvailability = bookingList.getBooking(i).isHasSeaView() ? "room with seaview" : "room without seaview";
@@ -59,7 +59,7 @@ public class Main {
     }
 
 //print first 8 vacation bookings
-    public void printFirstEightVacationBookings() {
+    private void printFirstEightVacationBookings() {
         System.out.println("\n-------First eight vacation bookings------------------------------------------------------");
         int firstEight = 0;
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
@@ -76,7 +76,7 @@ public class Main {
     }
 
 //print guest statistics
-    public void printGuestStatistics() {
+    private void printGuestStatistics() {
         System.out.println("\n-------Guest Statistics------------------------------------------------------------------");
 
         int bookingsWithOneGuest = 0;
@@ -101,7 +101,7 @@ public class Main {
     }
 
 //print total price per booking
-    public void printTotalPricePerBooking() {
+    private void printTotalPricePerBooking() {
         System.out.println("\n-------Total price per booking-----------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
