@@ -5,12 +5,11 @@ import java.util.List;
 
 public class BookingManager {
     private List<Booking> bookingList = new ArrayList<>();
-    private Booking booking;
 
 
-    public BookingManager(List<Booking> bookingList, Booking booking) {
+
+    public BookingManager(List<Booking> bookingList) {
         this.bookingList = bookingList;
-        this.booking = booking;
     }
 
     public BookingManager() {
@@ -45,7 +44,7 @@ public class BookingManager {
     public int getNumberOfWorkingBookings() {
         int countOfWorkingBookings = 0;
         for (Booking booking : bookingList) {
-            if (booking.isVacation() == null) {
+            if (! booking.isVacation()) {
                 countOfWorkingBookings++;
             }
         }
