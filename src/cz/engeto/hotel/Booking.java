@@ -3,6 +3,7 @@ package cz.engeto.hotel;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +54,19 @@ public class Booking {
         return dateTo.format(formatter);
     }
 
-    public int getBookinglength() {
-        return dateTo.getDayOfYear() - dateFrom.getDayOfYear();
+    // public int getBookingLength() {
+    //    return dateTo.getDayOfYear() - dateFrom.getDayOfYear();
+    //}
+    // problem if the booking is over the year end.
+    // It implicitly assumes that both dates are within the same year
+
+    public int getBookingLength() {
+        return (int) ChronoUnit.DAYS.between(dateFrom, dateTo);
     }
+
+
     public BigDecimal getTotalPrice() {
-        return room.getPricePerNight().multiply(BigDecimal.valueOf(getBookinglength()));
+        return room.getPricePerNight().multiply(BigDecimal.valueOf(getBookingLength()));
     }
     public int getRoom() {
         return room.getRoomNumber();
