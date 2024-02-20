@@ -49,7 +49,7 @@ public class Main {
 
 //print all booking with details
     public void printAllBookings() {
-        System.out.println("-------all bookings----------------------------------------------------------------------");
+        System.out.println("\n-------all bookings----------------------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             String seaViewAvailability = bookingList.getBooking(i).isHasSeaView() ? "room with seaview" : "room without seaview";
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
@@ -60,8 +60,7 @@ public class Main {
 
 //print first 8 vacation bookings
     public void printFirstEightVacationBookings() {
-        System.out.println();
-        System.out.println("-------Frst eight vacation bookings------------------------------------------------------");
+        System.out.println("\n-------First eight vacation bookings------------------------------------------------------");
         int firstEight = 0;
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             if (bookingList.getBooking(i).isVacation()) {
@@ -78,8 +77,7 @@ public class Main {
 
 //print guest statistics
     public void printGuestStatistics() {
-        System.out.println();
-        System.out.println("-------Guest Statistics------------------------------------------------------------------");
+        System.out.println("\n-------Guest Statistics------------------------------------------------------------------");
 
         int bookingsWithOneGuest = 0;
         int bookingsWithTwoGuests = 0;
@@ -104,11 +102,10 @@ public class Main {
 
 //print total price per booking
     public void printTotalPricePerBooking() {
-        System.out.println();
-        System.out.println("-------Total price per booking-----------------------------------------------------------");
+        System.out.println("\n-------Total price per booking-----------------------------------------------------------");
         for (int i = 0; i < bookingList.getNumberOfBookings(); i++) {
             System.out.println(bookingList.getBooking(i).getFormattedDateFrom() + " to " + bookingList.getBooking(i).getFormattedDateTo()
-                    + ": " + bookingList.getBooking(i).getGuest()+ ", "+ bookingList.getBooking(i).getBookinglength()
+                    + ": " + bookingList.getBooking(i).getGuest()+ ", "+ bookingList.getBooking(i).getBookingLength()
                     + " nights, Total price of booking: " + bookingList.getBooking(i).getTotalPrice() + " CZK");
         }
     }
